@@ -35,7 +35,7 @@ bool fast_mass_springs_precomputation_sparse(
 
   std::vector<Eigen::Triplet<double>> ijv_c;
   C.resize(b.size(),n);
-  for(int i=0; i<b.size();i++) ijv_c.emplace_back(z,b[z],1);
+  for(int i=0; i<b.size();i++) ijv_c.emplace_back(i,b[i],1);
   C.setFromTriplets(ijv_c.begin(), ijv_c.end());
 
   double w = 1e10;
