@@ -22,7 +22,7 @@ void fast_mass_springs_step_sparse(
   Eigen::MatrixXd p = Ucur;
   for(int iter = 0;iter < 50;iter++)
   {
-    Eigen::MatrixXd d = Eigen::Zero(E.rows(), 3);
+    Eigen::MatrixXd d = Eigen::MatrixXd::Zero(E.rows(), 3);
     for (int i = 0; i< r.size(); i++) d.row(i) = r(i)*(p.row(E(i,0)) -p.row(E(i,1))).normalized();
 
     Eigen::MatrixXd y = 1/(delta_t*delta_t) * M * (2*Ucur - Uprev) + fext;
